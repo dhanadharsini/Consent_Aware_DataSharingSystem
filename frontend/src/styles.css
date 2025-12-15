@@ -1,0 +1,120 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+  color: #333;
+}
+
+/* Centered container */
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h2, h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+/* Form */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #fafafa;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #0077ff;
+  background: #fff;
+}
+
+/* Buttons */
+button {
+  background: #0077ff;
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #005fcc;
+}
+
+button.deny {
+  background: #ff4444;
+}
+
+button.deny:hover {
+  background: #d93636;
+}
+
+/* Card */
+.card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 10px;
+  margin: 12px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card p {
+  margin: 6px 0;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.status.granted {
+  background: #d1ffd8;
+  color: #0f8c1a;
+}
+
+.status.revoked {
+  background: #ffe1e1;
+  color: #c62828;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #b8860b;
+}
+
+.log-box {
+  background: #fafafa;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 4px solid #0077ff;
+  margin: 8px 0;
+}
