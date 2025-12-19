@@ -40,7 +40,7 @@ function Login() {
 
       <button onClick={loginHandler}>Login</button>
 
-      <p>
+      <p className="para">
         Don't have an account? <a href="/register">Register</a>
       </p>
     </div>

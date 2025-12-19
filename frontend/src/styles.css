@@ -1,193 +1,250 @@
-/* Global Reset */
+/* ===============================
+   DESIGN TOKENS (ENTERPRISE)
+================================ */
+:root {
+  --green: #16a34a;
+  --green-dark: #15803d;
+  --red: #dc2626;
+  --red-dark: #991b1b;
+  --blue: #2563eb;
+  --blue-dark: #1e40af;
+  --gray-bg: #f3f4f6;
+  --border: #e5e7eb;
+  --text-dark: #111827;
+  --text-light: #6b7280;
+
+  --radius: 8px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ===============================
+   GLOBAL RESET
+================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", "Poppins", sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #f4f6f8, #e9eef3);
-  color: #333;
+  background: var(--gray-bg);
+  color: var(--text-dark);
   min-height: 100vh;
 }
 
-/* Smooth transitions */
-* {
-  transition: all 0.25s ease-in-out;
-}
-
-/* Centered container */
+/* ===============================
+   PAGE CONTAINER
+================================ */
 .container {
-  width: 90%;
-  max-width: 900px;
-  margin: 30px auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 14px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.12);
-  animation: fadeIn 0.6s ease-in-out;
+  max-width: 800px;
+  max-height:3000px;
+  margin: 40px auto;
+  background: #223d57;
+  padding: 32px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
-/* Fade animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.para
+{
+  color:white;
+  margin:20px;
 }
-
-/* Headings */
-h2, h3 {
-  text-align: center;
-  margin-bottom: 18px;
-  color: #1e1e1e;
-  letter-spacing: 0.5px;
+.para a{
+  color:white;
 }
-
+/* ===============================
+   HEADINGS
+================================ */
 h2 {
   font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color:white;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
+  margin: 28px 0 12px;
+  color:white;
 }
 
-/* Form */
+
+/* ===============================
+   FORM CONTROLS
+================================ */
 input, select {
   width: 100%;
   padding: 12px;
-  margin: 10px 0 18px;
-  border: 1px solid #dcdcdc;
-  border-radius: 8px;
-  font-size: 15px;
-  background: #fafafa;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  margin-bottom: 18px;
 }
 
 input:focus, select:focus {
   outline: none;
-  border-color: #0077ff;
-  box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.15);
-  background: #fff;
+  border-color: var(--blue);
 }
 
-/* Buttons */
+/* ===============================
+   BUTTONS (IMPORTANT)
+================================ */
 button {
-  background: linear-gradient(135deg, #0077ff, #005fcc);
-  color: white;
-  padding: 11px 16px;
+  padding: 10px 18px;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 119, 255, 0.25);
-}
-
-button:active {
-  transform: scale(0.97);
-}
-
-button.deny {
-  background: linear-gradient(135deg, #ff4444, #d93636);
-}
-
-button.deny:hover {
-  box-shadow: 0 6px 14px rgba(255, 68, 68, 0.3);
-}
-
-/* Card */
-.card {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  margin: 14px 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  border-left: 5px solid #0077ff;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-}
-
-.card-title {
-  font-size: 18px;
+  border-radius: var(--radius);
+  font-size: 14px;
   font-weight: 600;
-  margin-bottom: 6px;
+  cursor: pointer;
 }
 
-.card p {
-  margin: 6px 0;
+/* APPROVE */
+button.approve {
+  background: var(--green);
+  color: #265c1f;
+}
+
+button.approve:hover {
+  background: var(--green-dark);
+}
+
+/* REJECT / DENY */
+button.reject {
+  background: var(--red);
+  color: #b12828;
+}
+
+button.reject:hover {
+  background: var(--red-dark);
+}
+
+/* NEUTRAL */
+button.primary {
+  background: var(--blue);
+  color: #254161;
+}
+
+button.primary:hover {
+  background: var(--blue-dark);
+}
+.reject{
+  background-color: #b12828;
+  color:white;
+}
+.approve{
+   background-color: #16a34a;
+   color: black;
+}
+.cancel{
+  background-color: #b12828;
+  color:black;
+}
+.revoke{
+  background-color:#ac5814;
+}
+/* ===============================
+   TABLE (ENTERPRISE STYLE)
+================================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #a2cce9;
+}
+
+thead {
+  background: #434d57;
+}
+
+th, td {
+  text-align: left;
+  padding: 14px 16px;
   font-size: 14px;
-  color: #555;
+  border-bottom: 1px solid var(--border);
 }
 
-/* Status Badges */
+th {
+  font-weight: 600;
+  color: #374151;
+  color:white;
+}
+
+tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* ===============================
+   STATUS BADGES
+================================ */
 .status {
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-.status.granted {
-  background: #d1ffd8;
-  color: #0f8c1a;
+/* APPROVED */
+.status.approved {
+  background: #71f39f;
+  color: var(--green);
 }
 
-.status.revoked {
-  background: #ffe1e1;
-  color: #c62828;
-}
-
+/* PENDING */
 .status.pending {
-  background: #fff3cd;
-  color: #b8860b;
+  background: #fef3c7;
+  color: #b45309;
 }
 
-/* Logs */
+/* REJECTED / REVOKED */
+.status.rejected {
+  background: #db4343;
+  color: var(--red);
+}
+
+/* EXPIRED */
+.status.expired {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+/* ===============================
+   ACTION BUTTON GROUP
+================================ */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ===============================
+   LOG BOX
+================================ */
 .log-box {
-  background: #fafafa;
+  background: #88afd6;
   padding: 14px;
-  border-radius: 10px;
-  border-left: 4px solid #0077ff;
-  margin: 10px 0;
-  font-size: 14px;
-  color: #444;
+  border-left: 4px solid var(--blue);
+  border-radius: var(--radius);
+  font-size: 13px;
+  color: var(--text-light);
+  margin-top: 14px;
 }
 
-/* Scrollbar (Chrome) */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #0077ff;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #eaeaea;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .container {
-    padding: 20px;
+/* ===============================
+   RESPONSIVE TABLE
+================================ */
+@media (max-width: 768px) {
+  table {
+    font-size: 13px;
   }
 
-  h2 {
-    font-size: 22px;
+  th, td {
+    padding: 10px;
+  }
+
+  .actions {
+    flex-direction: column;
   }
 }

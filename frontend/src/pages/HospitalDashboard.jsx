@@ -1,30 +1,36 @@
 import React, { useEffect, useState } from "react";
 import API from "../api";
+import { useNavigate } from "react-router-dom";
 
 function HospitalDashboard() {
   const [patients, setPatients] = useState([]);
   const [consents, setConsents] = useState([]);
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     patientId: "",
     purpose: "",
     startTime: "",
-    endTime: ""
+    endTime: "",
   });
 
   const loadData = async () => {
-    // Get all patients
     const { data: users } = await API.get("/users/patients");
-    setPatients(users);
-
-    // Get hospital-created requests
     const { data: req } = await API.get("/consents/hospital");
+    setPatients(users);
     setConsents(req);
   };
 
   const createConsent = async () => {
     await API.post("/consents/create", form);
-    alert("Consent request created!");
+    alert("Consent Request Created");
     loadData();
+  };
+
+  // 🔴 ONLY NEW CODE (LOGOUT)
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/login", { replace: true });
   };
 
   useEffect(() => {
@@ -33,19 +39,37 @@ function HospitalDashboard() {
 
   return (
     <div className="container">
-      <h2>Hospital Dashboard</h2>
+      {/* 🔹 LOGOUT BUTTON ONLY */}
+      <div style={{ textAlign: "right" }}>
+        <button
+          onClick={logout}
+          style={{
+            backgroundColor: "red",
+            color: "white",
+            border: "none",
+            padding: "6px 12px",
+            cursor: "pointer",
+            borderRadius: "4px",
+          }}
+        >
+          Logout
+        </button>
+      </div>
 
-      <h3>Create Consent Request</h3>
+      <h2 className="hospital-dashboard">Hospital Dashboard</h2>
+
+      <h3>Create Consent</h3>
 
       <select onChange={(e) => setForm({ ...form, patientId: e.target.value })}>
         <option>Select Patient</option>
         {patients.map((p) => (
-          <option key={p.id} value={p.id}>{p.name}</option>
+          <option key={p.id} value={p.id}>
+            {p.name}
+          </option>
         ))}
       </select>
 
       <input
-        type="text"
         placeholder="Purpose"
         onChange={(e) => setForm({ ...form, purpose: e.target.value })}
       />
@@ -62,7 +86,7 @@ function HospitalDashboard() {
 
       <button onClick={createConsent}>Create</button>
 
-      <h3>Your Requests</h3>
+      <h3>Requests</h3>
 
       <table border="1">
         <thead>
